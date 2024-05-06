@@ -1,0 +1,173 @@
+{
+    "type": "MySQLNotebook",
+    "version": "1.0",
+    "caption": "DB Notebook",
+    "content": "\\about\nuse bacchus_winery;\nCREATE TABLE Roles (\n    role_id INT PRIMARY KEY,\n    role_name VARCHAR(50) NOT NULL\n);\nCREATE TABLE Employees (\n    employee_id INT PRIMARY KEY,\n    first_name VARCHAR(50) NOT NULL,\n    last_name VARCHAR(50) NOT NULL,\n    role_id INT,\n    hours_worked DECIMAL(8, 2),\n    FOREIGN KEY (role_id) REFERENCES Roles(role_id)\n);\nCREATE TABLE Suppliers (\n    supplier_id INT PRIMARY KEY,\n    supplier_name VARCHAR(100) NOT NULL,\n    contact_person VARCHAR(100),\n    contact_email VARCHAR(100)\n);\nINSERT INTO suppliers VALUES(\n    (1, 'Hyvee', 'Bob Smith', 'bsmith@hyvee.com'),\n    (2, 'Bakers', 'Mike Smith', 'msmith@bakers.com'),\n    (3, 'Krogers', 'Tom Anderson', 'tom@krogers.com')\n);\n\nCREATE TABLE Supplies (\n    supply_id INT PRIMARY KEY,\n    supply_name VARCHAR(100) NOT NULL,\n    supplier_id INT,\n    quantity INT,\n    unit_price DECIMAL(8, 2),\n    received_date DATE,\n    FOREIGN KEY (supplier_id) REFERENCES Suppliers(supplier_id)\n);\nCREATE TABLE Wines (\n    wine_id INT PRIMARY KEY,\n    wine_name VARCHAR(100) NOT NULL,\n    grape_used VARCHAR(100),\n    production_date DATE,\n    quantity_produced INT\n);\nCREATE TABLE Distributors (\n    distributor_id INT PRIMARY KEY,\n    distributor_name VARCHAR(10) NOT NULL,\n    distributor_street_number int(10) null,\n    distributor_street_name varchar(10),\n    distributor_city varchar(10),\n    distributor_state varchar(10),\n    distributor_zip int(5),\n    distributor_phone varchar(10),\n    contact_person VARCHAR(10),\n    contact_email VARCHAR(10)\n);\nINSERT INTO Distributors (distributor_id, distributor_name, distributor_street_number, distributor_street_name, distributor_city, distributor_state, distributor_zip, distributor_phone, contact_person, contact_email)\nVALUES\n    (1, 'Wine Distributors Inc.', 193, 'Main St', 'Cityville', 'CA', 90210, '555-1234', 'Mark Johnson', 'mark@winedistributors.com'),\n    (2, 'National Wines', 496, 'Broadway', 'Townsville', 'NY', 10001, '555-5678', 'Sally White', 'sally@nationalwines.com'),\n    (3, 'Fine Wine Imports', 781, 'Oak St', 'Villageville', 'WA', 98001, '555-9876', 'Chris Brown', 'chris@finewineimports.com'),\n    (4, 'Regional Wines', 101, 'Pine Ave', 'Hamletsville', 'OR', 97001, '555-4321', 'Lisa Black', 'lisa@regionalwines.com'),\n    (5, 'GlobeTrotter Beverages', 202, 'Jennings ct','Detroit','MI', 48188, '444-6789', 'Dick Jones', 'dickjones@urmomes.com')\n);\n\nCREATE TABLE WineShipments (\n    shipment_id INT PRIMARY KEY,\n    distributor_id INT,\n    wine_id INT,\n    quantity_shipped INT,\n    shipment_date DATE,\n    FOREIGN KEY (distributor_id) REFERENCES Distributors(distributor_id),\n    FOREIGN KEY (wine_id) REFERENCES Wines(wine_id)\n);",
+    "options": {
+        "tabSize": 4,
+        "indentSize": 4,
+        "insertSpaces": true,
+        "defaultEOL": "LF",
+        "trimAutoWhitespace": true
+    },
+    "viewState": {
+        "cursorState": [
+            {
+                "inSelectionMode": false,
+                "selectionStart": {
+                    "lineNumber": 63,
+                    "column": 1
+                },
+                "position": {
+                    "lineNumber": 63,
+                    "column": 1
+                }
+            }
+        ],
+        "viewState": {
+            "scrollLeft": 0,
+            "firstPosition": {
+                "lineNumber": 19,
+                "column": 1
+            },
+            "firstPositionDeltaTop": -8
+        },
+        "contributionsState": {
+            "editor.contrib.folding": {},
+            "editor.contrib.wordHighlighter": false
+        }
+    },
+    "contexts": [
+        {
+            "state": {
+                "start": 1,
+                "end": 1,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "content": "Welcome to the MySQL Shell - DB Notebook.\n\nPress Ctrl+Enter to execute the code block.\n\nExecute \\sql to switch to SQL, \\js to JavaScript and \\ts to TypeScript mode.\nExecute \\help or \\? for help;",
+                            "language": "ansi"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 6
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 2,
+                "end": 72,
+                "language": "mysql",
+                "currentHeight": 180,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 19
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 19,
+                            "length": 88
+                        },
+                        "contentStart": 20,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 107,
+                            "length": 235
+                        },
+                        "contentStart": 108,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 342,
+                            "length": 166
+                        },
+                        "contentStart": 343,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 508,
+                            "length": 192
+                        },
+                        "contentStart": 509,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 700,
+                            "length": 255
+                        },
+                        "contentStart": 702,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 955,
+                            "length": 171
+                        },
+                        "contentStart": 956,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 1126,
+                            "length": 389
+                        },
+                        "contentStart": 1127,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 1515,
+                            "length": 867
+                        },
+                        "contentStart": 1516,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 2382,
+                            "length": 283
+                        },
+                        "contentStart": 2384,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        }
+    ]
+}
